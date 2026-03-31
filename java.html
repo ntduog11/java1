@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Hover Preview</title>
+    <link rel="stylesheet" href="javae.css">
+</head>
+<body>
+
+    <h2>Image Hover Preview</h2>
+
+    <div id="image">
+        Hover over an image below to display here.
+    </div>
+
+    <img src="do.jpg" alt="Ảnh màu đỏ"
+         onmouseover="upDate(this)" 
+         onmouseout="undo()">
+
+    <img src="xanhla.jpg" alt="Ảnh màu xanh lá"
+         onmouseover="upDate(this)" 
+         onmouseout="undo()">
+
+    <img src="xanhduong.jpg" alt="Ảnh màu xanh dương"
+         onmouseover="upDate(this)" 
+         onmouseout="undo()">
+
+    <script>
+        function upDate(previewPic) {
+            console.log("Event triggered");
+            console.log("Alt:", previewPic.alt);
+            console.log("Source:", previewPic.src);
+
+            document.getElementById("image").innerHTML = previewPic.alt;
+            document.getElementById("image").style.backgroundImage = "url('" + previewPic.src + "')";
+        }
+
+        function undo() {
+            document.getElementById("image").style.backgroundImage = "url('')";
+            document.getElementById("image").innerHTML = "Hover over an image below to display here.";
+        }
+    </script>
+
+</body>
+</html>
